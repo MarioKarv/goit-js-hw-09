@@ -2,7 +2,7 @@ const startBtn = document.querySelector('[data-start]');
 const stopBtn = document.querySelector('[data-stop]');
 const body = document.querySelector('body')
 
-intervalId = null;
+let intervalId = null;
 
 startBtn.addEventListener('click', StartColoring);
 stopBtn.addEventListener('click', StopColoring);
