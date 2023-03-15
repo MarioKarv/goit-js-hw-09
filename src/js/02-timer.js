@@ -1,4 +1,5 @@
 import flatpickr from 'flatpickr';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import 'flatpickr/dist/flatpickr.min.css';
 
@@ -52,7 +53,7 @@ function dateDifference(selectedDates) {
   const currentDate = Date.now();
 
   if (selectedDates < currentDate) {
-    return alert('Please choose a date in the future');
+    return Notify.failure('Please choose a date in the future');
   }
 
   timeDifference = selectedDates.getTime() - currentDate;
@@ -79,7 +80,8 @@ function startTimer() {
     days.textContent <= 0
   ) {
       clearInterval(timerId);
-      dateInput.removeAttribute('disabled');
+    dateInput.removeAttribute('disabled');
+    Notify.success('Time end');
     return;
   }
 }
